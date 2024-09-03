@@ -1,3 +1,3 @@
-from src.mlProject.config.configuration import test 
+from src.mlProject.logging import logger
 
-print("testing", test)
+logger.info("Testing logs and verify by Vivek!")
