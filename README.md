@@ -15,10 +15,16 @@
   2. Update schema.yaml
   3. Update params.yaml
   4. update the Entity
-  5. Update configuration manager in src configuration
+  5. Update configuration manager in src configuration # give you src_path,
   6. Update the components
   7. Update the pipeline
   8. update the main.py
   9. Update the app.py
+
+
+# 3
+1. Data injection components
+2. Data Validation
+3. Data Transformation
 
 
