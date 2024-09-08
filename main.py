@@ -1,15 +1,41 @@
 from src.mlProject.logging import logger
 
 from src.mlProject.pipeline.stage_01_data_injection import DataInjectionTrainingPipeline
+from src.mlProject.pipeline.stage_02_data_validation import data_validation_pipeline
+from src.mlProject.pipeline.stage_03_data_transformation import DataTransformationPipeline
 
 
-STAGE_NAME="Data Injection Stage"
 
+# STAGE_NAME="Data Injection Stage"
+
+# try:
+#         logger.info(f"Starting {STAGE_NAME}")
+#         pipeline=DataInjectionTrainingPipeline()
+#         pipeline.main()
+#         logger.info(f"{STAGE_NAME} completed successfully") 
+# except Exception as e:
+#         logger.error(f"An error occurred in {STAGE_NAME}: {str(e)}")
+#         raise e
+
+
+
+STAGE_NAME="Data Validation Stage"
 try:
-        logger.info(f"Starting {STAGE_NAME}")
-        pipeline=DataInjectionTrainingPipeline()
-        pipeline.main()
-        logger.info(f"{STAGE_NAME} completed successfully") 
+    logger.info(f">>>>>>>>>> stage{STAGE_NAME} started <<<<<<<<<<<")
+    data_validation_object=data_validation_pipeline()
+    data_validation_object.main()
+    logger.info(f">>>>>>>>>> stage{STAGE_NAME} completed successfully <<<<<<<<<<<")
 except Exception as e:
-        logger.error(f"An error occurred in {STAGE_NAME}: {str(e)}")
-        raise e
+    logger.error(f"Error occurred in stage {STAGE_NAME}: {e}")
+    raise e
+
+
+STAGE_NAME="Data Transformation Stage"
+try:
+    logger.info(f">>>>>>>>>> stage{STAGE_NAME} started <<<<<<<<<<<")
+    data_transform_object=DataTransformationPipeline()
+    data_transform_object.data_transformation_main()
+    logger.info(f">>>>>>>>>> stage{STAGE_NAME} completed successfully <<<<<<<<<<<")
+except Exception as e:
+    logger.error(f"Error occurred in stage {STAGE_NAME}: {e}")
+    raise e
