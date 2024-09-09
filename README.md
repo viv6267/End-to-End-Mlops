@@ -25,6 +25,15 @@
 # 3
 1. Data injection components
 2. Data Validation
-3. Data Transformation
+3. Data Transformation-EDA, PCA, Standard Scaler, Featuring Engineering, Train_Test_Split
+
+
+# 4 
+1. Model Trainer Components
+2. Model Evaluation Components
+3. Prediction Pipeline 
+4. User App--> Flask
+5. 
+
 
 

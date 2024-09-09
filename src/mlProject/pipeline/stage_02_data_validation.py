@@ -4,7 +4,7 @@ from src.mlProject.logging import logger
 
 STAGE_NAME="Data Validation Stage"
 
-class data_validation_pipeline:
+class Data_Validation_Pipeline:
 
     def __init__(self):
         pass

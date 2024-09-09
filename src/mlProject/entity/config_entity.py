@@ -19,3 +19,14 @@ class DataValidationConfig:
 class DataTransformationConfig:
     root_dir: Path
     unzip_dir: Path
+
+@dataclass(frozen=True)
+class ModelTrainerConfig:
+   root_dir: Path
+   train_data_path: Path
+   test_data_path: Path
+   model_name: str
+   n_estimators: int
+   learning_rate: float
+   max_depth: int
+   target_column: str

@@ -7,7 +7,7 @@ from src.mlProject.constants import *
 from src.mlProject.utils.common import read_yaml,create_directories
 from dataclasses import dataclass
 from pathlib import Path
-from src.mlProject.entity.config_entity import DataInjectionConfig,DataValidationConfig,DataTransformationConfig
+from src.mlProject.entity.config_entity import DataInjectionConfig,DataValidationConfig,DataTransformationConfig,ModelTrainerConfig
 
 class ConfigurationManager:
     def __init__(self, config_file_path=CONFIG_FILE_PATH,schema_file_path=SCHEMA_FILE_PATH,para_file_path=PARAMS_FILE_PATH):
@@ -60,6 +60,25 @@ class ConfigurationManager:
             unzip_dir=Path(self.config.data_transformations.unzip_dir)
         )
         return transformation_config
+    
+    def get_model_trainer_config(self)->ModelTrainerConfig:
+
+        config=self.config.model_trainer
+        params=self.params.XGB_MODEL
+        schema=self.schema.TARGET_COLUMN
+
+        create_directories([config.root_dir])
+
+        return ModelTrainerConfig(
+            root_dir=config.root_dir,
+            train_data_path=config.train_data_path,
+            test_data_path=config.test_data_path,
+            model_name=config.model_name,
+            n_estimators=params.n_estimators,
+            learning_rate=params.learning_rate,
+            max_depth=params.max_depth,
+            target_column=schema.name
+        )
     
 
 
