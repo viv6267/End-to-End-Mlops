@@ -30,3 +30,12 @@ class ModelTrainerConfig:
    learning_rate: float
    max_depth: int
    target_column: str
+
+@dataclass(frozen=True)
+class Data_Evaluation_Config:
+    root_dir: Path
+    test_data_path: Path
+    model_path: Path
+    metrics_file_name: Path
+    all_params: dict
+    target_columns: str

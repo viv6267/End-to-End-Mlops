@@ -8,6 +8,7 @@ from ensure import ensure_annotations
 from box import ConfigBox
 from pathlib import Path
 from typing import Any
+ 
 
 
 @ensure_annotations
@@ -48,6 +49,46 @@ def create_directories(path_to_directories: list,verbose=True):
             logger.info(f"Directory: {path} created successfully")
 
 @ensure_annotations
+def save_json_data(path: Path,data: dict):
+    print("checking1")
+    """
+    save json data
+
+    Args:
+    path(Path): path to save json file
+    data(dict): data to be saved as json
+
+    """
+    print("check2")
+    import json
+    with open(path, 'w') as f:
+        json.dump(data, f, indent=4)
+
+    logger.info(f"Json file: {path} saved successfully")
+
+
+
+'''@ensure_annotations
+def save1_json(path: Path,data: dict):
+    print("checking1")
+    """
+    save json data
+
+    Args:
+    path(Path): path to save json file
+    data(dict): data to be saved as json
+
+    """
+    print("check2")
+    import json
+    with open(path, 'w') as f:
+        json.dump(data, f, indent=4)
+
+    logger.info(f"Json file: {path} saved successfully")'''
+
+
+
+@ensure_annotations
 def load_json(path:Path):
     """
     load json files data
@@ -81,3 +122,5 @@ def get_size(path:Path):
     size_in_kb=round(os.path.getsize(path)/1024)
 
     return f"~ {size_in_kb} KB"
+
+

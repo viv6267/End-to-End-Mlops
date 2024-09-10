@@ -7,7 +7,7 @@ from src.mlProject.constants import *
 from src.mlProject.utils.common import read_yaml,create_directories
 from dataclasses import dataclass
 from pathlib import Path
-from src.mlProject.entity.config_entity import DataInjectionConfig,DataValidationConfig,DataTransformationConfig,ModelTrainerConfig
+from src.mlProject.entity.config_entity import DataInjectionConfig,DataValidationConfig,DataTransformationConfig,ModelTrainerConfig, Data_Evaluation_Config
 
 class ConfigurationManager:
     def __init__(self, config_file_path=CONFIG_FILE_PATH,schema_file_path=SCHEMA_FILE_PATH,para_file_path=PARAMS_FILE_PATH):
@@ -79,6 +79,19 @@ class ConfigurationManager:
             max_depth=params.max_depth,
             target_column=schema.name
         )
+    
+    def get_risk_evaluation_config(self)->Data_Evaluation_Config:
+
+        create_directories([self.config.model_evaluation.root_dir])
+
+        return Data_Evaluation_Config(root_dir=self.config.model_evaluation.root_dir,
+                                      test_data_path=self.config.model_evaluation.test_data_path,
+                                      model_path=self.config.model_evaluation.model_path,
+                                      metrics_file_name=self.config.model_evaluation.metrics_file_name,
+                                      all_params=self.params.XGB_MODEL,
+                                      target_columns=self.schema.TARGET_COLUMN.name
+                                      )
+
     
 
 
