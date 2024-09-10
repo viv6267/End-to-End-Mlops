@@ -33,7 +33,34 @@
 2. Model Evaluation Components
 3. Prediction Pipeline 
 4. User App--> Flask
-5. 
+
+# 5
+# AWS -CI/CD Deployment with GITHub Action
+# 1. Login to AWS console
+## 2. Create IAM user for deployment
+
+1. EC2 access: It is virtual machine
+2. ECR: Elastic Container Registry to save your docker imagein AWS account
+
+# Description : About the deployment
+1. Build docker image of the source code
+2. Push your docker image to ECR
+3. Launch Your EC2
+4. Pull Your Image from ECR in EC2
+
+
+# Policy
+1. Amazon EC2 Container Registry Full Acess
+2. Amazon EC2 Full Access
+
+# 3.
+# Create ECR repo to store/save docker image
+
+# 4
+# Create EC2 machine (Ubuntu)
+
+# 5.
+Open EC2 and install docker in EC2 Machine:
 
 
 
